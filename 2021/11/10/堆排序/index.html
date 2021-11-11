@@ -477,6 +477,11 @@
         
 
         
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
 
         <div class="card-content article-card-content">
             <div id="articleContent">
@@ -872,7 +877,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('1,2,3,4,5,6,7'),
-            headingSelector: 'h1,h2, h3, h4,h5,h6,h7'
+            headingSelector: 'h1,h2, h3, h4, h5, h6, h7'
         });
 
         // modify the toc link href to support Chinese.
@@ -884,7 +889,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4,h5,h6,h7').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4, h5, h6, h7').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 

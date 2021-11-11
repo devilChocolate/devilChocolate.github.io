@@ -477,32 +477,19 @@
         
 
         
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3><span id="栈">栈</span></h3><ul>
-<li><p>什么是栈:</p>
-<ul>
-<li>栈是允许在同一端进行插入和删除操作的特殊线性表（受限的线性表）。允许进行插入和删除操作的一端称为栈顶(top)，另一端为栈底(bottom)；栈底固定，而栈顶浮 动；栈中元素个数为零时称为空栈。插入一般称为进栈（PUSH），删除则称为出栈（POP）。栈也称为后进先出表。</li>
-</ul>
-</li>
-<li><p>入栈:</p>
-<ul>
-<li>将数据保存到栈项的操作。进行入栈操作前，先修改栈项引用。使其向上移一个元素位置，然后将数据保存到栈顶引用所指的位置</li>
-</ul>
-</li>
-<li><p>出栈:</p>
-<ul>
-<li>将栈顶的数据弹出的操作。通过修改栈项引用，使其指向栈顶的下一个元素</li>
-</ul>
-</li>
-<li><p>栈结构示意图:</p>
-</li>
-<li><p>栈的常见操作:</p>
-</li>
-<li><p>封装一个栈</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Stack&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    this.item = []</span><br><span class="line">    this.length = 0</span><br><span class="line">  &#125;</span><br><span class="line">  //入栈</span><br><span class="line">  push(data)&#123;</span><br><span class="line">    this.item.push(data)</span><br><span class="line">    this.length++</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //出栈</span><br><span class="line">  pop()&#123;</span><br><span class="line">    this.item.pop()</span><br><span class="line">    this.length--</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //获取栈元素个数</span><br><span class="line">  getCount()&#123;</span><br><span class="line">    return this.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //清空</span><br><span class="line">  clear()&#123;</span><br><span class="line">    this.item = []</span><br><span class="line">    this.length = 0</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //得到栈顶元素</span><br><span class="line">  getTop()&#123;</span><br><span class="line">    return this.item[this.length - 1]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //判断栈是否为空</span><br><span class="line">  isEmpty()&#123;</span><br><span class="line">    return !this.length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
-</ul>
+                <h1><span id="栈">栈</span></h1><h2><span id="什么是栈">什么是栈:</span></h2><p>  栈是允许在同一端进行插入和删除操作的特殊线性表（受限的线性表）。允许进行插入和删除操作的一端称为栈顶(top)，另一端为栈底(bottom)；栈底固定，而栈顶浮 动；栈中元素个数为零时称为空栈。插入一般称为进栈（PUSH），删除则称为出栈（POP）。栈也称为后进先出表。</p>
+<h2><span id="入栈">入栈:</span></h2><p>  将数据保存到栈项的操作。进行入栈操作前，先修改栈项引用。使其向上移一个元素位置，然后将数据保存到栈顶引用所指的位置</p>
+<h2><span id="出栈">出栈:</span></h2><p>  将栈顶的数据弹出的操作。通过修改栈项引用，使其指向栈顶的下一个元素</p>
+<h2><span id="栈结构示意图">栈结构示意图: <img src="/.io//1.png"></span></h2><h2><span id="栈的常见操作">栈的常见操作:</span></h2><h2><span id="封装一个栈">封装一个栈</span></h2>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Stack&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    this.item = []</span><br><span class="line">    this.length = 0</span><br><span class="line">  &#125;</span><br><span class="line">  //入栈</span><br><span class="line">  push(data)&#123;</span><br><span class="line">    this.item.push(data)</span><br><span class="line">    this.length++</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //出栈</span><br><span class="line">  pop()&#123;</span><br><span class="line">    this.item.pop()</span><br><span class="line">    this.length--</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //获取栈元素个数</span><br><span class="line">  getCount()&#123;</span><br><span class="line">    return this.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //清空</span><br><span class="line">  clear()&#123;</span><br><span class="line">    this.item = []</span><br><span class="line">    this.length = 0</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //得到栈顶元素</span><br><span class="line">  getTop()&#123;</span><br><span class="line">    return this.item[this.length - 1]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //判断栈是否为空</span><br><span class="line">  isEmpty()&#123;</span><br><span class="line">    return !this.length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
@@ -891,7 +878,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('1,2,3,4,5,6,7'),
-            headingSelector: 'h1,h2, h3, h4,h5,h6,h7'
+            headingSelector: 'h1,h2, h3, h4, h5, h6, h7'
         });
 
         // modify the toc link href to support Chinese.
@@ -903,7 +890,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h1,h2, h3, h4,h5,h6,h7').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4, h5, h6, h7').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
