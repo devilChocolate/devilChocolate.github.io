@@ -428,9 +428,21 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mustache/">
+                                <span class="chip bg-color">mustache</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%99%9A%E6%8B%9FDom/">
+                                <span class="chip bg-color">虚拟Dom</span>
+                            </a>
+                        
+                            <a href="/tags/Diff%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">Diff算法</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -526,7 +538,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/mustache/">
+                                    <span class="chip bg-color">mustache</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%99%9A%E6%8B%9FDom/">
+                                    <span class="chip bg-color">虚拟Dom</span>
+                                </a>
+                            
+                                <a href="/tags/Diff%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">Diff算法</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -728,6 +752,26 @@
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BC%82%E6%AD%A5/">
+                        <span class="chip bg-color">异步</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%97%AD%E5%8C%85/">
+                        <span class="chip bg-color">闭包</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                        <span class="chip bg-color">原型链</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/">
+                        <span class="chip bg-color">作用域链</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -763,6 +807,22 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">vue3的优化</span>
+                    </a>
+                    
+                    <a href="/tags/composition-api/">
+                        <span class="chip bg-color">composition-api</span>
+                    </a>
+                    
+                    <a href="/tags/setup%E8%AF%AD%E6%B3%95%E7%B3%96/">
+                        <span class="chip bg-color">setup语法糖</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -818,8 +878,8 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            collapseDepth: Number('1,2,3'),
+            headingSelector: 'h2, h3, h4 , h5 , h6 ,h7'
         });
 
         // modify the toc link href to support Chinese.
@@ -831,7 +891,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4 , h5 , h6 ,h7').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -952,7 +1012,7 @@
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -983,6 +1043,60 @@
 
             <!-- 运行天数提醒. -->
             
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2019";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
             <br>
             
         </div>
@@ -993,7 +1107,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:2319956999@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1003,7 +1117,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2319956999" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2319956999" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1145,6 +1259,15 @@ $(function () {
 
     
 
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 雪花特效 -->

@@ -5,7 +5,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="数据结构和算法, 蚁人空间">
-    <meta name="description" content="数据结构和算法 | 蚁人空间">
+    <meta name="description" content="行而上学 不行退学
+
+
+数据结构线性表
+线性表概念：
+线性表类型：
+
+栈
+什么是栈:
+
+栈是允许在同一端进行插入和删除操作的特殊线性表（受限的线性表）。允许进行插入和删除操作的一端称为栈顶(top)，另一端为栈底(bottom)；栈底固定，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -428,12 +438,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/BST/">
+                                <span class="chip bg-color">BST</span>
+                            </a>
+                        
+                            <a href="/tags/AVL/">
+                                <span class="chip bg-color">AVL</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                                <span class="chip bg-color">红黑树</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B9%B3%E8%A1%A1%E5%A4%9A%E5%8F%89%E6%A0%91-B%E6%A0%91/">
+                                <span class="chip bg-color">平衡多叉树(B树)</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构和算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -463,7 +498,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>行而上学 不行退学</p>
+<span id="more"></span>
+
+<h2><span id="数据结构">数据结构</span></h2><h3><span id="线性表">线性表</span></h3><ul>
+<li>线性表概念：</li>
+<li>线性表类型：</li>
+</ul>
+<h4><span id="栈">栈</span></h4><ul>
+<li><p>什么是栈:</p>
+<ul>
+<li>栈是允许在同一端进行插入和删除操作的特殊线性表（受限的线性表）。允许进行插入和删除操作的一端称为栈顶(top)，另一端为栈底(bottom)；栈底固定，而栈顶浮 动；栈中元素个数为零时称为空栈。插入一般称为进栈（PUSH），删除则称为出栈（POP）。栈也称为后进先出表。</li>
+</ul>
+</li>
+<li><p>入栈:</p>
+<ul>
+<li>将数据保存到栈项的操作。进行入栈操作前，先修改栈项引用。使其向上移一个元素位置，然后将数据保存到栈顶引用所指的位置</li>
+</ul>
+</li>
+<li><p>出栈:</p>
+<ul>
+<li>将栈顶的数据弹出的操作。通过修改栈项引用，使其指向栈顶的下一个元素</li>
+</ul>
+</li>
+<li><p>栈结构示意图:</p>
+</li>
+<li><p>栈的常见操作:</p>
+</li>
+<li><p>封装一个栈</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">class Stack&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    this.item = []</span><br><span class="line">    this.length = 0</span><br><span class="line">  &#125;</span><br><span class="line">  //入栈</span><br><span class="line">  push(data)&#123;</span><br><span class="line">    this.item.push(data)</span><br><span class="line">    this.length++</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //出栈</span><br><span class="line">  pop()&#123;</span><br><span class="line">    this.item.pop()</span><br><span class="line">    this.length--</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //获取栈元素个数</span><br><span class="line">  getCount()&#123;</span><br><span class="line">    return this.length</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //清空</span><br><span class="line">  clear()&#123;</span><br><span class="line">    this.item = []</span><br><span class="line">    this.length = 0</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //得到栈顶元素</span><br><span class="line">  getTop()&#123;</span><br><span class="line">    return this.item[this.length - 1]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //判断栈是否为空</span><br><span class="line">  isEmpty()&#123;</span><br><span class="line">    return !this.length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4><span id="队列">队列</span></h4><h4><span id="优先队列">优先队列</span></h4><h4><span id="单向链表">单向链表</span></h4><h4><span id="双向链表">双向链表</span></h4><h4><span id="循环链表">循环链表</span></h4><h3><span id="树结构">树结构</span></h3><h4><span id="二叉树">二叉树</span></h4><h5><span id="满二叉树">满二叉树</span></h5><h5><span id="完全二叉树">完全二叉树</span></h5><h5><span id="二叉搜索树">二叉搜索树</span></h5><h5><span id="平衡二叉树">平衡二叉树</span></h5><h6><span id="avl-高度平衡树">AVL 高度平衡树</span></h6><h6><span id="红黑树自平衡树">红黑树(自平衡树)</span></h6><h4><span id="b-树">B 树</span></h4><h5><span id="b-树">B-树</span></h5><h5><span id="b树">B+树</span></h5><h5><span id="b树">B*树</span></h5><h5><span id="234-树">234 树</span></h5><h2><span id="图">图</span></h2><h2><span id="广度优先搜索bfs">广度优先搜索(BFS)</span></h2><h2><span id="深度优先搜索dfs">深度优先搜索(DFS)</span></h2><h2><span id="算法">算法</span></h2><h3><span id="数组的十种排序方法">数组的十种排序方法</span></h3><h4><span id="冒泡排序">冒泡排序</span></h4><h4><span id="选择排序">选择排序</span></h4><h4><span id="插入排序">插入排序</span></h4><h4><span id="归并排序">归并排序</span></h4><h4><span id="希尔排序">希尔排序</span></h4><h4><span id="快速排序">快速排序</span></h4><h4><span id="堆排序">堆排序</span></h4><h4><span id="计数排序">计数排序</span></h4><h4><span id="桶排序">桶排序</span></h4><h4><span id="基数排序">基数排序</span></h4><h3><span id="二分法">二分法</span></h3><h3><span id="贪心算法">贪心算法</span></h3><h3><span id="回溯算法">回溯算法</span></h3>
                 
             </div>
             <hr/>
@@ -526,7 +591,23 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/BST/">
+                                    <span class="chip bg-color">BST</span>
+                                </a>
+                            
+                                <a href="/tags/AVL/">
+                                    <span class="chip bg-color">AVL</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                                    <span class="chip bg-color">红黑树</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B9%B3%E8%A1%A1%E5%A4%9A%E5%8F%89%E6%A0%91-B%E6%A0%91/">
+                                    <span class="chip bg-color">平衡多叉树(B树)</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -728,6 +809,22 @@
                     </div>
                 </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue3%E7%9A%84%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">vue3的优化</span>
+                    </a>
+                    
+                    <a href="/tags/composition-api/">
+                        <span class="chip bg-color">composition-api</span>
+                    </a>
+                    
+                    <a href="/tags/setup%E8%AF%AD%E6%B3%95%E7%B3%96/">
+                        <span class="chip bg-color">setup语法糖</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -749,7 +846,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            行而上学 不行退学
                         
                     </div>
                     <div class="publish-info">
@@ -758,13 +855,37 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            wangkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构和算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/BST/">
+                        <span class="chip bg-color">BST</span>
+                    </a>
+                    
+                    <a href="/tags/AVL/">
+                        <span class="chip bg-color">AVL</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                        <span class="chip bg-color">红黑树</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B9%B3%E8%A1%A1%E5%A4%9A%E5%8F%89%E6%A0%91-B%E6%A0%91/">
+                        <span class="chip bg-color">平衡多叉树(B树)</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -819,8 +940,8 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            collapseDepth: Number('1,2,3'),
+            headingSelector: 'h2, h3, h4 , h5 , h6 ,h7'
         });
 
         // modify the toc link href to support Chinese.
@@ -832,7 +953,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4 , h5 , h6 ,h7').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -953,7 +1074,7 @@
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -984,6 +1105,60 @@
 
             <!-- 运行天数提醒. -->
             
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2019";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
             <br>
             
         </div>
@@ -994,7 +1169,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:2319956999@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1004,7 +1179,7 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2319956999" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2319956999" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1146,6 +1321,15 @@ $(function () {
 
     
 
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 雪花特效 -->
