@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="完全二叉树, 我在人间凑数的日子">
+    <meta name="keywords" content="选择排序, 我在人间凑数的日子">
     <meta name="description" content="行而上学,不行退学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>完全二叉树 | 我在人间凑数的日子</title>
+    <title>选择排序 | 我在人间凑数的日子</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">完全二叉树</h1>
+                    <h1 class="description center-align post-title">选择排序</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
+                            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">排序算法</span>
                             </a>
                         
                     </div>
@@ -442,12 +442,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                数据结构
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/" class="post-category">
-                                树结构
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-category">
+                                数组排序算法
                             </a>
                         
                     </div>
@@ -485,7 +485,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const arr = [9,5,3,2,1,7,8,6]</span><br><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;*&#125; arr 数组</span><br><span class="line"> * @param &#123;*&#125; i 交换位置i</span><br><span class="line"> * @param &#123;*&#125; j 交换位置j</span><br><span class="line">*/</span><br><span class="line">function swap(arr,i,j) &#123;</span><br><span class="line">  const temp =  arr[i]</span><br><span class="line">  arr[i] = arr[j]</span><br><span class="line">  arr[j] = temp</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * @description 选择排序</span><br><span class="line"> * @param &#123;*&#125; arr 数组</span><br><span class="line"> * @return 排序完成后的数组</span><br><span class="line">*/</span><br><span class="line">function selectSort(arr) &#123;</span><br><span class="line">  const _len = arr.length</span><br><span class="line">  for(let i = 0 ; i &lt;_len - 1;i++)&#123;</span><br><span class="line">    let min = i</span><br><span class="line">    for(let j = i+1;j&lt;_len;j++)&#123;</span><br><span class="line">      if(arr[j] &lt; arr[min])&#123;</span><br><span class="line">        min = j</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr,i,min)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -511,7 +511,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://devilChocolate.github.io/2021/11/10/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/">https://devilChocolate.github.io/2021/11/10/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/</a>
+                    <a href="https://devilChocolate.github.io/2021/11/10/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">https://devilChocolate.github.io/2021/11/10/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,8 +549,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
+                                <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">排序算法</span>
                                 </a>
                             
                         </div>
@@ -726,13 +726,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/10/%E5%A0%86%E6%8E%92%E5%BA%8F/">
+                <a href="/2021/11/10/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="堆排序">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="贪心算法">
                         
-                        <span class="card-title">堆排序</span>
+                        <span class="card-title">贪心算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -753,10 +753,6 @@
                                     算法
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数组排序算法
-                                </a>
-                            
                             
                         </span>
                     </div>
@@ -764,8 +760,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">排序算法</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -779,13 +775,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/10/%E5%AE%8C%E7%BE%8E%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                <a href="/2021/11/10/%E9%98%9F%E5%88%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="完美二叉树">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="队列">
                         
-                        <span class="card-title">完美二叉树</span>
+                        <span class="card-title">队列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,8 +802,8 @@
                                     数据结构
                                 </a>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/" class="post-category">
-                                    树结构
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/" class="post-category">
+                                    线性结构
                                 </a>
                             
                             
