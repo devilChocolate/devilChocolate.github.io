@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="B+树, 我在人间凑数的日子">
+    <meta name="keywords" content="Event Loop 事件循环机制, 我在人间凑数的日子">
     <meta name="description" content="行而上学,不行退学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>B+树 | 我在人间凑数的日子</title>
+    <title>Event Loop 事件循环机制 | 我在人间凑数的日子</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">B+树</h1>
+                    <h1 class="description center-align post-title">Event Loop 事件循环机制</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
+                            <a href="/tags/js%E5%BC%82%E6%AD%A5/">
+                                <span class="chip bg-color">js异步</span>
                             </a>
                         
                     </div>
@@ -442,12 +442,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                数据结构
-                            </a>
-                        
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/" class="post-category">
-                                树结构
+                            <a href="/categories/js%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" class="post-category">
+                                js异步编程
                             </a>
                         
                     </div>
@@ -485,7 +481,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2><span id="event-loop中的角色">Event loop中的角色：</span></h2><p>  Heap（堆）: 保存引用类型<br>  Web APIS: 由宿主环境提供（如浏览器），可以执行定时任务，发送异步请求等操作（多线程）<br>  Queue: 事件队列，FIFO类型（first input, first output ）<br>  Stack：执行栈, FILO类型 ( first input, last output）</p>
+<h2><span id="js执行顺序">js执行顺序：</span></h2><p>  JavaScript是单线程语言。即代码从上往下依次执行，在遇到错误时终止。</p>
+<h3><span id="示例">示例</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">  fn2()</span><br><span class="line">  console.log(&quot;A”); //语句1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fn2() &#123;</span><br><span class="line">  fn3()</span><br><span class="line">  console.log(&quot;B”); //语句2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fn3() &#123;</span><br><span class="line">  console.log(&quot;C”); //语句3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn1()</span><br></pre></td></tr></table></figure>
+<h3><span id="顺序执行步骤">顺序执行步骤：</span></h3><p>  fn1入栈  -&gt;  fn2入栈  -&gt;  fn3入栈 -&gt;  语句3入栈  -&gt; 语句3出栈输出c  -&gt; 语句2入栈  -&gt; 语句2出栈输出B  -&gt;  fn2出栈  -&gt;  语句1入栈  -&gt;  语句1出栈输出A  -&gt;  fn1出栈</p>
+<h3><span id="结果">结果</span></h3><p>  C B A</p>
+<h2><span id="even-loop-的工作流程">Even loop 的工作流程：</span></h2><p>  因为JavaScript是单线程执行的，所以在遇到异步的任务（如I/O读写，请求后端数据等），我们需要等待这些任务完成后才能继续执行代码。在等待这些任务时会堵塞页面的加载和渲染所以我们将这些任务交给我们的Web APIs执行，借助Web APIs是多线程的原理可以更高效的完成我们的任务。js单线程要做的不是发送请求等事件（或者说这不是主要的任务）,我们需要的是发送请求后拿到的结果。js执行的过程中将需要异步执行的任务抛出，然后继续执行同步的代码，等到同步代码执行完成后，再去异步队列获取任务结果。在异步完成后,会将结果放到queue事件队列中,我们需要通过 event loop将其加入到执行栈中执行。如下图：<br>  <img src="/2021/11/10/EventLoop/eventloop.png" class></p>
+<h2><span id="js执行顺序">js执行顺序</span></h2><p>  先执行同步代码，同步代码执行完成后从异步队列中获取异步执行结果，添加到执行栈中继续执行</p>
+<p>  注意：就是setTimeout或者ajax请求，axios请求等，即使它们在几毫秒内完成，也是异步任务，需要在同步代码执行完成后才能被执行。</p>
+<h3><span id="示例">示例</span></h3>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(&quot;star&quot;);</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  console.log(&quot;异步执行结束&quot;);</span><br><span class="line">&#125;, 1);</span><br><span class="line"></span><br><span class="line">for (let i = 0; i &lt; 10000; i++) &#123;&#125;</span><br><span class="line">  console.log(&quot;同步执行结束&quot;);</span><br></pre></td></tr></table></figure>
+<h3><span id="结果">结果</span></h3><p>  star -&gt; 同步执行结束 -&gt;  异步执行结束</p>
+<h2><span id="异步执行条件">异步执行条件</span></h2><p>  1.当前同步任务已经执行完成（执行栈被清空）<br>  2.异步任务被添加至异步队列中</p>
+<h3><span id="示例">示例</span></h3>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;star&quot;);</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  console.log(&quot;异步任务&quot;);</span><br><span class="line">&#125;, 0);</span><br><span class="line">while (true) &#123;&#125;</span><br><span class="line">console.log(&quot;同步执行结束&quot;);</span><br></pre></td></tr></table></figure>
+<h3><span id="结果">结果</span></h3><p>  star -&gt; 一直运行</p>
+<p>因为同步任务是一个死循环永远不会结束，执行栈会一直被占用，永远不可能执行异步任务</p>
+<p>settimeout的真实执行的时间大于等于 delay（延迟时间），我们设置的时间是最理想或者说至少需要延迟的时间</p>
+
                 
             </div>
             <hr/>
@@ -511,7 +522,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://devilChocolate.github.io/2021/11/10/B+%E6%A0%91/">https://devilChocolate.github.io/2021/11/10/B+%E6%A0%91/</a>
+                    <a href="https://devilChocolate.github.io/2021/11/10/EventLoop/">https://devilChocolate.github.io/2021/11/10/EventLoop/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -549,8 +560,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
+                                <a href="/tags/js%E5%BC%82%E6%AD%A5/">
+                                    <span class="chip bg-color">js异步</span>
                                 </a>
                             
                         </div>
@@ -726,13 +737,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/10/B%E6%A0%91/">
+                <a href="/2021/11/10/B+%E6%A0%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="B树">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="B+树">
                         
-                        <span class="card-title">B树</span>
+                        <span class="card-title">B+树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -779,13 +790,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/10/EventLoop/">
+                <a href="/2021/11/10/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Event Loop 事件循环机制">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="二叉搜索树(BST)">
                         
-                        <span class="card-title">Event Loop 事件循环机制</span>
+                        <span class="card-title">二叉搜索树(BST)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -802,8 +813,12 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/js%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" class="post-category">
-                                    js异步编程
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/" class="post-category">
+                                    树结构
                                 </a>
                             
                             
@@ -813,8 +828,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js%E5%BC%82%E6%AD%A5/">
-                        <span class="chip bg-color">js异步</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
